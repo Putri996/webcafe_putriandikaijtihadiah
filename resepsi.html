@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservasi Resepsi - Chill Cafe</title>
+    <link class="text-success" rel="stylesheet" href="bootstrap-5.3.8-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root { --primary-brown: #6F4E37; --accent-pink: #FFB6C1; --bg-light: #FDFBF7; }
+        body { background-color: var(--bg-light); color: #4A4A4A; }
+        .form-container { background: white; padding: 40px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        .btn-custom-save { background-color: #2E8B57; color: white; }
+        .btn-custom-save:hover { background-color: #236B43; color: white;}
+    </style>
+</head>
+<body>
+
+    <div class="container py-5" style="max-width: 700px;">
+        <div class="text-center mb-4">
+            <h2 class="fw-bold text-brown"><i class="fa-solid fa-file-signature text-success me-2"></i>Formulir Reservasi Resepsi</h2>
+            <p class="text-muted">Silakan isi detail janji temu / pesta mini Anda di Chill Cafe</p>
+        </div>
+
+        <div id="successAlert" class="alert alert-success alert-dismissible fade d-none" role="alert">
+            <i class="fa-solid fa-circle-check me-2"></i> <strong>Resepsi telah dibuat!</strong> Jadwal Anda berhasil dicatat ke dalam sistem (simulasi).
+            <button type="button" class="btn-close" onclick="tutupAlert()"></button>
+        </div>
+
+        <div class="form-container">
+            <form id="resepsiForm" onsubmit="prosesSimpan(event)">
+                
+                <div class="mb-3">
+                    <label class="form-label fw-bold"><i class="fa-solid fa-user me-1"></i> Nama Lengkap Pemesan</label>
+                    <input type="text" class="form-content form-control" placeholder="Contoh: Budi Santoso" required>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label class="form-label fw-bold"><i class="fa-solid fa-phone me-1"></i> No. WhatsApp</label>
+                        <input type="tel" class="form-control" placeholder="0812xxxx" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label fw-bold"><i class="fa-solid fa-envelope me-1"></i> Email</label>
+                        <input type="email" class="form-control" placeholder="budi@email.com">
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-md-4">
+                        <label class="form-label fw-bold"><i class="fa-solid fa-calendar me-1"></i> Tanggal</label>
+                        <input type="date" class="form-control" required>
+                    </div>
+                    <div class="col-md-4">
+                        <label class="form-label fw-bold"><i class="fa-solid fa-clock me-1"></i> Jam Acara</label>
+                        <input type="time" class="form-control" required>
+                    </div>
+                    <div class="col-md-4">
+                        <label class="form-label fw-bold"><i class="fa-solid fa-users me-1"></i> Jumlah Tamu</label>
+                        <input type="number" class="form-control" min="1" placeholder="Pax" required>
+                    </div>
+                </div>
+
+                <div class="mb-4">
+                    <label class="form-label fw-bold"><i class="fa-solid fa-layer-group me-1"></i> Pilihan Area Tempat</label>
+                    <select class="form-select" required>
+                        <option value="">-- Pilih Area Cafe --</option>
+                        <option value="indoor">Indoor Utama (AC & Sofa)</option>
+                        <option value="outdoor">Outdoor Asri (Smoking Area)</option>
+                        <option value="vip">Ruang VIP Eksklusif</option>
+                    </select>
+                </div>
+
+                <div class="mb-4">
+                    <label class="form-label fw-bold"><i class="fa-solid fa-note-sticky me-1"></i> Catatan Khusus (Opsional)</label>
+                    <textarea class="form-control" rows="3" placeholder="Contoh: Request dekorasi bunga meja / set menu kue ulang tahun..."></textarea>
+                </div>
+
+                <div class="d-flex justify-content-between gap-3 mt-4">
+                    <a href="index.html" class="btn btn-light border flex-grow-1"><i class="fa-solid fa-arrow-left me-2"></i>Kembali</a>
+                    <button type="submit" class="btn btn-custom-save flex-grow-1"><i class="fa-solid fa-floppy-disk me-2"></i>Simpan Jadwal</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function prosesSimpan(event) {
+            event.preventDefault(); // Mencegah reload halaman nyata
+            const alertBox = document.getElementById('successAlert');
+            alertBox.classList.remove('d-none', 'fade');
+            alertBox.classList.add('show');
+            window.scrollTo({top: 0, behavior: 'smooth'}); // Otomatis scroll ke atas untuk lihat alert
+        }
+
+        function tutupAlert() {
+            const alertBox = document.getElementById('successAlert');
+            alertBox.classList.add('d-none');
+        }
+    </script>
+
+    <script src="bootstrap-5.3.8-dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

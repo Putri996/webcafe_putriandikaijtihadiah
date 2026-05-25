@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chill Cafe - Tempat Nyaman, Rasa Berkesan</title>
+    <link rel="stylesheet" href="bootstrap-5.3.8-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    
+    <style>
+        :root {
+            --primary-brown: #6F4E37;
+            --accent-pink: #FFB6C1;
+            --fresh-green: #2E8B57;
+            --bg-light: #FDFBF7;
+        }
+        body {
+            background-color: var(--bg-light);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #4A4A4A;
+            scroll-behavior: smooth;
+        }
+        .navbar {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        .btn-pink {
+            background-color: var(--accent-pink);
+            color: #333;
+            font-weight: 600;
+        }
+        .btn-pink:hover {
+            background-color: #FFA07A;
+            color: #333;
+        }
+        
+        /* GAYA HERO SLIDER */
+        .carousel-item {
+            height: 70vh;
+            min-height: 450px;
+            background: no-repeat center center;
+            background-size: cover;
+        }
+
+        /* CUSTOM TRANSISI SLIDE: Diubah ke 3.0 detik agar gerakan bergesernya pas & santai */
+        .carousel-item-next, 
+        .carousel-item-prev, 
+        .carousel-item.active {
+            transition: transform 3.0s ease-in-out !important;
+        }
+
+        .carousel-caption-custom {
+            background: linear-gradient(to right, rgba(45, 30, 20, 0.85) 0%, rgba(45, 30, 20, 0.4) 75%, rgba(0, 0, 0, 0) 100%);
+            padding: 40px 60px 40px 40px;
+            border-radius: 0 30px 30px 0;
+            border-left: 6px solid var(--accent-pink);
+            backdrop-filter: blur(4px);
+        }
+        @media (max-width: 767.98px) {
+            .carousel-caption-custom {
+                background: linear-gradient(to bottom, rgba(45, 30, 20, 0.95) 0%, rgba(45, 30, 20, 0.75) 100%);
+                border-radius: 15px;
+                margin: 0 15px;
+                padding: 25px;
+                border-left: none;
+                border-bottom: 5px solid var(--accent-pink);
+            }
+        }
+
+        .section-padding {
+            padding: 80px 0;
+        }
+        .text-green { color: var(--fresh-green); }
+        .text-brown { color: var(--primary-brown); }
+
+        /* STYLE ABOUT US - AURA GLOW TANPA KOTAK KAKU */
+        .polaroid-img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+        .facility-item {
+            background: transparent;
+            border: none;
+            padding: 20px 10px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .icon-circle {
+            width: 70px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-size: 26px;
+            margin-bottom: 12px;
+            transition: transform 0.3s ease;
+        }
+        .facility-item:hover .icon-circle {
+            transform: scale(1.1);
+        }
+        .aura-green {
+            background-color: rgba(46, 139, 87, 0.1);
+            color: #2E8B57;
+            box-shadow: 0 0 30px rgba(46, 139, 87, 0.4);
+        }
+        .aura-yellow {
+            background-color: rgba(255, 193, 7, 0.1);
+            color: #ffb700;
+            box-shadow: 0 0 30px rgba(255, 193, 7, 0.5);
+        }
+        .aura-brown {
+            background-color: rgba(111, 78, 55, 0.1);
+            color: #6F4E37;
+            box-shadow: 0 0 30px rgba(111, 78, 55, 0.4);
+        }
+        .aura-blue {
+            background-color: rgba(0, 183, 255, 0.1);
+            color: #00b7ff;
+            box-shadow: 0 0 30px rgba(0, 183, 255, 0.4);
+        }
+
+        /* Custom Accordion FAQ Style */
+        .accordion-button:not(.collapsed) {
+            background-color: var(--accent-pink);
+            color: #333;
+        }
+        
+        /* CONTACT SECTION BOX */
+        .footer-box {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            height: 100%;
+        }
+
+        /* TOMBOL MEDSOS BULAT SEMPURNA */
+        .social-btn {
+            width: 55px;
+            height: 55px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50% !important;
+            font-size: 20px;
+            transition: all 0.3s ease;
+            background-color: transparent;
+        }
+        .social-btn-wa {
+            border: 2px solid #25D366;
+            color: #25D366;
+        }
+        .social-btn-wa:hover {
+            background-color: #25D366;
+            color: white;
+            box-shadow: 0 0 15px rgba(37, 211, 102, 0.4);
+        }
+        .social-btn-ig {
+            border: 2px solid #E1306C;
+            color: #E1306C;
+        }
+        .social-btn-ig:hover {
+            background-color: #E1306C;
+            color: white;
+            box-shadow: 0 0 15px rgba(225, 48, 108, 0.4);
+        }
+        .social-btn-fb {
+            border: 2px solid #1877F2;
+            color: #1877F2;
+        }
+        .social-btn-fb:hover {
+            background-color: #1877F2;
+            color: white;
+            box-shadow: 0 0 15px rgba(24, 119, 242, 0.4);
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg sticky-top navbar-light">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <img src="img/LogoCafe.png" alt="Logo" width="50" height="50" class="d-inline-block align-text-top me-2" onerror="this.src='https://via.placeholder.com/50?text=Logo'">
+                <div>
+                    <h5 class="fw-bold mb-0 text-brown">Chill Cafe</h5>
+                    <small class="text-muted" style="font-size: 11px;">Seseruput Ketenangan di Setiap Cangkir</small>
+                </div>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#menu">Menu</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#faq">FAQ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                    <li class="nav-item ms-lg-3">
+                        <a href="resepsi.html" class="btn btn-pink rounded-pill px-4 shadow-sm"><i class="fa-solid fa-calendar-days me-2"></i>Resepsi</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div id="heroSlider" class="carousel slide" data-bs-ride="carousel" data-bs-touch="true" data-bs-interval="3000" data-bs-pause="false">
+        <div class="carousel-inner">
+            <div class="carousel-item active" style="background-image: url('img/HeaderSlider1.png');">
+                <div class="container h-100">
+                    <div class="row h-100 align-items-center">
+                        <div class="col-md-8 col-lg-6 carousel-caption-custom animate__animated animate__fadeInLeft">
+                            <h1 class="display-4 fw-bold text-white mb-3">Selamat Datang di <span style="color: var(--accent-pink);">Chill Cafe</span></h1>
+                            <p class="lead text-white-50 mb-4">Temukan harmoni rasa terbaik dari seduhan kopi pilihan dan kue manis buatan rumah yang siap memanjakan hari Anda.</p>
+                            <a href="#menu" class="btn btn-success rounded-pill px-4 shadow">Lihat Menu Favorit</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item" style="background-image: url('img/HeaderSlider2.png');">
+                <div class="container h-100">
+                    <div class="row h-100 align-items-center">
+                        <div class="col-md-8 col-lg-6 carousel-caption-custom">
+                            <h2 class="display-5 fw-bold text-white mb-3">Suasana Hangat & Chill</h2>
+                            <p class="lead text-white-50 mb-4">Bukan sekadar tempat minum kopi, ini adalah ruang ternyaman Anda untuk bekerja, mengobrol, atau mencari inspirasi.</p>
+                            <a href="#about" class="btn btn-success rounded-pill px-4 shadow">Tentang Kami</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item" style="background-image: url('img/HeaderSlider3.png');">
+                <div class="container h-100">
+                    <div class="row h-100 align-items-center">
+                        <div class="col-md-8 col-lg-6 carousel-caption-custom">
+                            <h2 class="display-5 fw-bold text-white mb-3">Dibuat Dengan Cinta</h2>
+                            <p class="lead text-white-50 mb-4">Setiap sajian makanan dan minuman diolah secara higienis menggunakan bahan premium untuk kualitas rasa nomor satu.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section id="about" class="section-padding">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-5 mb-5 mb-lg-0">
+                    <img src="img/AboutCafe.png" alt="About Chill Cafe" class="polaroid-img" onerror="this.src='https://via.placeholder.com/500x400?text=About+Cafe'">
+                </div>
+                <div class="col-lg-7 ps-lg-5">
+                    <div class="d-flex align-items-center mb-3">
+                        <h2 class="fw-bold text-brown mb-0 me-2">About Us</h2>
+                        <i class="fa-solid fa-mug-hot text-green fs-4"></i>
+                    </div>
+                    <h4 class="text-muted fw-light mb-3">Cerita Di Balik Cangkir Kopi Anda</h4>
+                    <p class="text-secondary lead fs-6">Berdiri sejak kehangatan komitmen dimulai, Chill Cafe hadir untuk menjadi oase di tengah kesibukan harian Anda. Kami percaya bahwa secangkir kopi yang baik dan sepotong kue manis mampu mengubah suasana hati dan melahirkan id-ide cemerlang.</p>
+                    
+                    <div class="row g-4 mt-3">
+                        <div class="col-6 col-md-3">
+                            <div class="facility-item">
+                                <div class="icon-circle aura-green">
+                                    <i class="fa-solid fa-wifi"></i>
+                                </div>
+                                <h6 class="mb-0 fw-bold text-dark">Free Wifi</h6>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <div class="facility-item">
+                                <div class="icon-circle aura-yellow">
+                                    <i class="fa-solid fa-bolt"></i>
+                                </div>
+                                <h6 class="mb-0 fw-bold text-dark">Stop Kontak</h6>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <div class="facility-item">
+                                <div class="icon-circle aura-brown">
+                                    <i class="fa-solid fa-couch"></i>
+                                </div>
+                                <h6 class="mb-0 fw-bold text-dark">Sofa Nyaman</h6>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <div class="facility-item">
+                                <div class="icon-circle aura-blue">
+                                    <i class="fa-solid fa-snowflake"></i>
+                                </div>
+                                <h6 class="mb-0 fw-bold text-dark">Full AC</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="menu" class="section-padding bg-white">
+        <div class="container">
+            <div class="text-center mb-5">
+                <div class="d-flex justify-content-center align-items-center mb-2">
+                    <i class="fa-solid fa-utensils text-green me-2 fs-3"></i>
+                    <h2 class="fw-bold text-brown mb-0">Our Menu</h2>
+                    <i class="fa-solid fa-cake-candles text-green ms-2 fs-3"></i>
+                </div>
+                <p class="text-muted">Intip sekilas menu terlaris andalan para pelanggan setia kami</p>
+            </div>
+
+            <div class="row g-4 justify-content-center">
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm text-center">
+                        <img src="img/MatchaStrawberrySundae.png" class="card-img-top p-3 rounded-5" alt="Matcha Strawberry" onerror="this.src='https://via.placeholder.com/300x200?text=Matcha+Sundae'">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold text-brown">Matcha Strawberry Sundae</h5>
+                            <p class="text-success fw-bold">Rp 28.000</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm text-center">
+                        <img src="img/CheeseCake.png" class="card-img-top p-3 rounded-5" alt="Cheese Cake" onerror="this.src='https://via.placeholder.com/300x200?text=Cheese+Cake'">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold text-brown">Premium Cheese Cake</h5>
+                            <p class="text-success fw-bold">Rp 32.000</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm text-center">
+                        <img src="img/LotusCoffee.png" class="card-img-top p-3 rounded-5" alt="Lotus Coffee" onerror="this.src='https://via.placeholder.com/300x200?text=Lotus+Coffee'">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold text-brown">Lotus Biscoff Coffee</h5>
+                            <p class="text-success fw-bold">Rp 26.000</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-5">
+                <a href="menu.html" class="link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover fw-bold text-brown fs-5">
+                    Lihat menu lainnya <i class="fa-solid fa-arrow-right ms-1"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" class="section-padding">
+        <div class="container" style="max-width: 800px;">
+            <div class="text-center mb-5">
+                <div class="d-flex justify-content-center align-items-center mb-2">
+                    <i class="fa-solid fa-circle-question text-green me-2 fs-3"></i>
+                    <h2 class="fw-bold text-brown mb-0">FAQ</h2>
+                    <i class="fa-solid fa-comments text-green ms-2 fs-3"></i>
+                </div>
+                <p class="text-muted">Pertanyaan yang paling sering diajukan pelanggan Chill Cafe</p>
+            </div>
+
+            <div class="accordion shadow-sm" id="accordionFAQ">
+                <div class="accordion-item border-0 mb-2 rounded overflow-hidden">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                            Apakah di Chill Cafe ada area Smoking / Outdoor?
+                        </button>
+                    </h2>
+                    <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#accordionFAQ">
+                        <div class="accordion-body bg-white">
+                            Ya, tentu saja! Kami menyediakan area outdoor yang luas, asri, dan estetik di bagian belakang cafe khusus bagi Anda yang ingin merokok atau menikmati udara segar.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item border-0 mb-2 rounded overflow-hidden">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                            Bagaimana cara melakukan reservasi tempat untuk acara khusus?
+                        </button>
+                    </h2>
+                    <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#accordionFAQ">
+                        <div class="accordion-body bg-white">
+                            Mudah sekali! Anda bisa langsung mengeklik tombol <strong>"Resepsi"</strong> di pojok kanan atas menu navigasi website ini, isi form secara lengkap, lalu simpan jadwal Anda.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item border-0 rounded overflow-hidden">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                            Apakah semua bahan makanan di sini dijamin Halal?
+                        </button>
+                    </h2>
+                    <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#accordionFAQ">
+                        <div class="accordion-body bg-white">
+                            Seluruh menu makanan, minuman, serta *pastry/cake* di Chill Cafe dibuat menggunakan bahan-bahan bersertifikat 100% Halal tanpa bahan pengawet berbahaya.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section-padding bg-light border-top">
+        <div class="container">
+            <div class="row g-4 text-center">
+                <div class="col-md-4">
+                    <div class="footer-box">
+                        <i class="fa-solid fa-map-location-dot text-green fs-2 mb-3"></i>
+                        <h5 class="fw-bold text-brown">Alamat</h5>
+                        <p class="text-secondary mb-0">Jl. Senja No. 67, Kisasasaran, Sumatera Utara</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="footer-box">
+                        <i class="fa-solid fa-clock text-green fs-2 mb-3"></i>
+                        <h5 class="fw-bold text-brown">Jam Operasional</h5>
+                        <p class="text-secondary mb-1">Setiap Hari (Senin - Minggu)</p>
+                        <p class="fw-bold text-dark mb-0">09:00 WIB - 22:00 WIB</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="footer-box">
+                        <i class="fa-solid fa-heart text-green fs-2 mb-3"></i>
+                        <h5 class="fw-bold text-brown">Follow Us</h5>
+                        <div class="d-flex justify-content-center gap-3 mt-3">
+                            <a href="#" class="social-btn social-btn-wa"><i class="fa-brands fa-whatsapp"></i></a>
+                            <a href="#" class="social-btn social-btn-ig"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="#" class="social-btn social-btn-fb"><i class="fa-brands fa-facebook-f"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-dark text-white text-center py-3">
+        <p class="mb-0">&copy; 2026 Chill Cafe. All Rights Reserved. Created beautifully with Bootstrap.</p>
+    </footer>
+
+    <script src="bootstrap-5.3.8-dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
