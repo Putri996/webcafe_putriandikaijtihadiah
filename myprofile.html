@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile - Chill Cafe</title>
+    <link rel="stylesheet" href="bootstrap-5.3.8-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    
+    <style>
+        :root {
+            --primary-brown: #6F4E37;
+            --accent-pink: #FFB6C1;
+            --fresh-green: #2E8B57;
+            --bg-light: #FDFBF7;
+        }
+        body {
+            background-color: var(--bg-light);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #4A4A4A;
+        }
+        .navbar {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        .btn-pink {
+            background-color: var(--accent-pink);
+            color: #333;
+            font-weight: 600;
+        }
+        .btn-pink:hover {
+            background-color: #FFA07A;
+            color: #333;
+        }
+        .btn-brown {
+            background-color: var(--primary-brown);
+            color: white;
+            font-weight: 600;
+        }
+        .btn-brown:hover {
+            background-color: #553c2a;
+            color: white;
+        }
+        
+        /* Profile Card Styling */
+        .main-profile-card {
+            background: white;
+            border-radius: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border: none;
+            overflow: hidden;
+        }
+        .profile-header-bg {
+            background: linear-gradient(135deg, var(--primary-brown) 0%, #553c2a 100%);
+            height: 140px;
+        }
+        .profile-avatar-container {
+            margin-top: -70px;
+            position: relative;
+            z-index: 2;
+        }
+        .profile-avatar {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            border: 5px solid white;
+            background-color: #f0e6df;
+            color: var(--primary-brown);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 55px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin: 0 auto;
+        }
+        
+        /* Info List Box */
+        .info-box {
+            background-color: #FDFBF7;
+            border-left: 4px solid var(--accent-pink);
+            border-radius: 0 12px 12px 0;
+            padding: 15px;
+            height: 100%;
+        }
+        .info-label {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #999;
+            margin-bottom: 2px;
+            font-weight: 600;
+        }
+        .info-value {
+            font-size: 16px;
+            color: #333;
+            font-weight: 500;
+        }
+        
+        /* Social Buttons */
+        .social-link {
+            width: 45px;
+            height: 45px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-size: 18px;
+            color: white;
+            transition: transform 0.3s ease;
+            text-decoration: none;
+        }
+        .social-link:hover {
+            transform: translateY(-3px);
+            color: white;
+        }
+        .bg-instagram { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%); }
+        .bg-github { background-color: #333; }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg sticky-top navbar-light">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <img src="img/LogoCafe.png" alt="Logo" width="50" height="50" class="d-inline-block align-text-top me-2" onerror="this.src='https://via.placeholder.com/50?text=Logo'">
+                <div>
+                    <h5 class="fw-bold mb-0 text-brown">Chill Cafe</h5>
+                    <small class="text-muted" style="font-size: 11px;">Seseruput Ketenangan di Setiap Cangkir</small>
+                </div>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#menu">Menu</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#faq">FAQ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#contact">Contact</a></li>
+                    <li class="nav-item ms-lg-3 my-2 my-lg-0">
+                        <a href="resepsi.html" class="btn btn-pink rounded-pill px-4 shadow-sm"><i class="fa-solid fa-calendar-days me-2"></i>Resepsi</a>
+                    </li>
+                    <li class="nav-item ms-lg-2 my-2 my-lg-0">
+                        <a href="myprofile.html" class="btn btn-brown rounded-pill px-4 shadow-sm"><i class="fa-solid fa-user me-2"></i>Profile</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-md-10 col-lg-8 animate__animated animate__fadeInUp">
+                
+                <div class="card main-profile-card">
+                    <div class="profile-header-bg"></div>
+                    
+                    <div class="profile-avatar-container text-center">
+                        <div class="profile-avatar">
+                            <i class="fa-solid fa-user-graduate"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="text-center px-4 mt-3 mb-4">
+                        <h2 class="fw-bold text-dark mb-1">Putri</h2>
+                        <span class="badge rounded-pill bg-success px-3 py-2 mb-3">Mahasiswi Sistem Informasi</span>
+                        <p class="text-secondary mx-auto" style="max-width: 600px;">
+                            "Halo! Saya adalah mahasiswi Sistem Informasi di Universitas Royal semester 4. Website Chill Cafe ini dikembangkan sebagai proyek untuk memenuhi tugas kuliah saya. Salam kenal semuanya!"
+                        </p>
+                        
+                        <div class="d-flex justify-content-center gap-3 mt-3">
+                            <a href="https://www.instagram.com/tsunamyo?igsh=eWQzY3VlN2V4MWRx" target="_blank" class="social-link bg-instagram" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="https://github.com/Putri996" target="_blank" class="social-link bg-github" title="Github"><i class="fa-brands fa-github"></i></a>
+                        </div>
+                    </div>
+                    
+                    <hr class="mx-4 my-2 text-muted opacity-25">
+                    
+                    <div class="card-body p-4 p-sm-5">
+                        <h5 class="fw-bold text-brown mb-4"><i class="fa-solid fa-address-card me-2"></i>Informasi Akademik & Pribadi</h5>
+                        
+                        <div class="row g-4">
+                            <div class="col-sm-6">
+                                <div class="info-box">
+                                    <div class="info-label">Nama Panggilan</div>
+                                    <div class="info-value">Putri</div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="info-box">
+                                    <div class="info-label">Instansi / Kampus</div>
+                                    <div class="info-value">Universitas Royal (Semester 4)</div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="info-box">
+                                    <div class="info-label">Program Studi</div>
+                                    <div class="info-value">Sistem Informasi</div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="info-box">
+                                    <div class="info-label">Tempat Tinggal</div>
+                                    <div class="info-value">Kisaran, Sumatera Utara 📍</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <h5 class="fw-bold text-brown mt-5 mb-3"><i class="fa-solid fa-heart text-danger me-2"></i>Hobi & Kesukaan</h5>
+                        <div class="d-flex flex-wrap gap-2">
+                            <span class="btn btn-sm btn-outline-secondary rounded-pill px-3" style="pointer-events: none;"><i class="fa-solid fa-music text-primary me-1"></i> Mendengarkan Lagu</span>
+                            <span class="btn btn-sm btn-outline-secondary rounded-pill px-3" style="pointer-events: none;"><i class="fa-solid fa-tv text-warning me-1"></i> Menonton Anime</span>
+                            <span class="btn btn-sm btn-outline-secondary rounded-pill px-3" style="pointer-events: none;"><i class="fa-solid fa-book-open text-success me-1"></i> Membaca Manga</span>
+                            <span class="btn btn-sm btn-outline-secondary rounded-pill px-3" style="pointer-events: none;"><i class="fa-solid fa-mug-hot text-brown me-1"></i> Pecinta Kopi</span>
+                        </div>
+                        
+                        <div class="text-center mt-5">
+                            <a href="index.html" class="btn btn-pink rounded-pill px-5 shadow-sm">
+                                <i class="fa-solid fa-arrow-left me-2"></i>Kembali ke Beranda
+                            </a>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-dark text-white-50 text-center py-3 mt-5">
+        <p class="mb-0 small">&copy; 2026 Universitas Royal. All Rights Reserved.</p>
+    </footer>
+
+    <script src="bootstrap-5.3.8-dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

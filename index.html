@@ -35,6 +35,18 @@
             color: #333;
         }
         
+        /* Tombol Profile Kustom */
+        .btn-profile {
+            border: 2px solid var(--primary-brown);
+            color: var(--primary-brown);
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        .btn-profile:hover {
+            background-color: var(--primary-brown);
+            color: white;
+        }
+        
         /* GAYA HERO SLIDER */
         .carousel-item {
             height: 70vh;
@@ -43,11 +55,11 @@
             background-size: cover;
         }
 
-        /* CUSTOM TRANSISI SLIDE: Diubah ke 3.0 detik agar gerakan bergesernya pas & santai */
+        /* CUSTOM TRANSISI SLIDE */
         .carousel-item-next, 
         .carousel-item-prev, 
         .carousel-item.active {
-            transition: transform 3.0s ease-in-out !important;
+            transition: transform 0.6s ease-in-out !important;
         }
 
         .carousel-caption-custom {
@@ -74,7 +86,7 @@
         .text-green { color: var(--fresh-green); }
         .text-brown { color: var(--primary-brown); }
 
-        /* STYLE ABOUT US - AURA GLOW TANPA KOTAK KAKU */
+        /* STYLE ABOUT US */
         .polaroid-img {
             max-width: 100%;
             height: auto;
@@ -153,33 +165,12 @@
             transition: all 0.3s ease;
             background-color: transparent;
         }
-        .social-btn-wa {
-            border: 2px solid #25D366;
-            color: #25D366;
-        }
-        .social-btn-wa:hover {
-            background-color: #25D366;
-            color: white;
-            box-shadow: 0 0 15px rgba(37, 211, 102, 0.4);
-        }
-        .social-btn-ig {
-            border: 2px solid #E1306C;
-            color: #E1306C;
-        }
-        .social-btn-ig:hover {
-            background-color: #E1306C;
-            color: white;
-            box-shadow: 0 0 15px rgba(225, 48, 108, 0.4);
-        }
-        .social-btn-fb {
-            border: 2px solid #1877F2;
-            color: #1877F2;
-        }
-        .social-btn-fb:hover {
-            background-color: #1877F2;
-            color: white;
-            box-shadow: 0 0 15px rgba(24, 119, 242, 0.4);
-        }
+        .social-btn-wa { border: 2px solid #25D366; color: #25D366; }
+        .social-btn-wa:hover { background-color: #25D366; color: white; box-shadow: 0 0 15px rgba(37, 211, 102, 0.4); }
+        .social-btn-ig { border: 2px solid #E1306C; color: #E1306C; }
+        .social-btn-ig:hover { background-color: #E1306C; color: white; box-shadow: 0 0 15px rgba(225, 48, 108, 0.4); }
+        .social-btn-fb { border: 2px solid #1877F2; color: #1877F2; }
+        .social-btn-fb:hover { background-color: #1877F2; color: white; box-shadow: 0 0 15px rgba(24, 119, 242, 0.4); }
     </style>
 </head>
 <body>
@@ -203,8 +194,11 @@
                     <li class="nav-item"><a class="nav-link" href="#menu">Menu</a></li>
                     <li class="nav-item"><a class="nav-link" href="#faq">FAQ</a></li>
                     <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-                    <li class="nav-item ms-lg-3">
+                    <li class="nav-item ms-lg-3 my-2 my-lg-0">
                         <a href="resepsi.html" class="btn btn-pink rounded-pill px-4 shadow-sm"><i class="fa-solid fa-calendar-days me-2"></i>Resepsi</a>
+                    </li>
+                    <li class="nav-item ms-lg-2 my-2 my-lg-0">
+                        <a href="myprofile.html" class="btn btn-profile rounded-pill px-4 shadow-sm"><i class="fa-solid fa-user me-2"></i>Profile</a>
                     </li>
                 </ul>
             </div>
@@ -260,38 +254,35 @@
                         <i class="fa-solid fa-mug-hot text-green fs-4"></i>
                     </div>
                     <h4 class="text-muted fw-light mb-3">Cerita Di Balik Cangkir Kopi Anda</h4>
-                    <p class="text-secondary lead fs-6">Berdiri sejak kehangatan komitmen dimulai, Chill Cafe hadir untuk menjadi oase di tengah kesibukan harian Anda. Kami percaya bahwa secangkir kopi yang baik dan sepotong kue manis mampu mengubah suasana hati dan melahirkan id-ide cemerlang.</p>
+                    <p class="text-secondary lead fs-6">Berdiri sejak kehangatan komitmen dimulai, Chill Cafe hadir untuk menjadi oase di tengah kesibukan harian Anda. Kami percaya bahwa secangkir kopi yang baik dan sepotong kue manis mampu mengubah suasana hati dan melahirkan ide-ide cemerlang.</p>
+                    <div class="mt-4">
+                        <a href="aboutcafe.html" class="link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover fw-bold text-brown fs-5">
+                            Lihat tentang kami lebih lanjut <i class="fa-solid fa-arrow-up-right-from-square ms-1" style="font-size: 14px;"></i>
+                        </a>
+                    </div>
                     
                     <div class="row g-4 mt-3">
                         <div class="col-6 col-md-3">
                             <div class="facility-item">
-                                <div class="icon-circle aura-green">
-                                    <i class="fa-solid fa-wifi"></i>
-                                </div>
+                                <div class="icon-circle aura-green"><i class="fa-solid fa-wifi"></i></div>
                                 <h6 class="mb-0 fw-bold text-dark">Free Wifi</h6>
                             </div>
                         </div>
                         <div class="col-6 col-md-3">
                             <div class="facility-item">
-                                <div class="icon-circle aura-yellow">
-                                    <i class="fa-solid fa-bolt"></i>
-                                </div>
+                                <div class="icon-circle aura-yellow"><i class="fa-solid fa-bolt"></i></div>
                                 <h6 class="mb-0 fw-bold text-dark">Stop Kontak</h6>
                             </div>
                         </div>
                         <div class="col-6 col-md-3">
                             <div class="facility-item">
-                                <div class="icon-circle aura-brown">
-                                    <i class="fa-solid fa-couch"></i>
-                                </div>
+                                <div class="icon-circle aura-brown"><i class="fa-solid fa-couch"></i></div>
                                 <h6 class="mb-0 fw-bold text-dark">Sofa Nyaman</h6>
                             </div>
                         </div>
                         <div class="col-6 col-md-3">
                             <div class="facility-item">
-                                <div class="icon-circle aura-blue">
-                                    <i class="fa-solid fa-snowflake"></i>
-                                </div>
+                                <div class="icon-circle aura-blue"><i class="fa-solid fa-snowflake"></i></div>
                                 <h6 class="mb-0 fw-bold text-dark">Full AC</h6>
                             </div>
                         </div>
@@ -436,7 +427,7 @@
     </section>
 
     <footer class="bg-dark text-white text-center py-3">
-        <p class="mb-0">&copy; 2026 Chill Cafe. All Rights Reserved. Created beautifully with Bootstrap.</p>
+        <p class="mb-0">&copy; 2026 Universitas Royal. All Rights Reserved.</p>
     </footer>
 
     <script src="bootstrap-5.3.8-dist/js/bootstrap.bundle.min.js"></script>
